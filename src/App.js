@@ -12,7 +12,8 @@ export default function App() {
             <input type='text' onChange={e => setValue(e.target.value)} defaultValue="home"/>
             <button onClick={() => {
                 GoogleAnalytics.pageview(value);
-                GoogleAnalytics4.send("pageview", value);
+                GoogleAnalytics4.send({ hitType: "pageview", page: value });
+
             }}>click
             </button>
         </div>
