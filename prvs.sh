@@ -27,7 +27,8 @@ EXTENSIONS=(
     "https://github.com/hako-mikan/sd-webui-regional-prompter"
     "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111"
     "https://github.com/fkunn1326/openpose-editor"
-    "https://github.com/Gourieff/sd-webui-reactor"
+    "https://github.com/Gourieff/sd-webui-reactor",
+    "https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111"
 )
 
 CHECKPOINT_MODELS=(
@@ -35,11 +36,17 @@ CHECKPOINT_MODELS=(
     "https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
+    "https://civitai.com/api/download/models/537505?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+    "https://civitai.com/api/download/models/395041"
+    "https://civitai.com/api/download/models/536812"
+    "https://civitai.com/api/download/models/501240"
 )
 
 LORA_MODELS=(
     "https://civitai.com/api/download/models/16576"
     "https://civitai.com/api/download/models/176425"
+    "https://civitai.com/api/download/models/87153"
+    "https://civitai.com/api/download/models/368603"
 )
 
 VAE_MODELS=(
@@ -71,6 +78,11 @@ CONTROLNET_MODELS=(
     "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
     "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_sketch-fp16.safetensors"
     "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_canny.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_tile_anime_alpha.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_tile_anime_beta.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_tile_realistic.safetensors"
+    "https://civitai.com/api/download/models/444122"
 )
 
 
