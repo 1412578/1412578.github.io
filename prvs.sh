@@ -29,6 +29,7 @@ CHECKPOINT_MODELS=(
     "https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/Models/AbyssOrangeMix3/AOM3_orangemixs.safetensors?download=true"
     "https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/Models/AbyssOrangeMix3/AOM3A1B_orangemixs.safetensors?download=true"
     "https://huggingface.co/admruul/anything-v3.0/resolve/main/Anything-V3.0-pruned-fp16.safetensors?download=true"
+    "https://civitai.com/api/download/models/432048"
 )
 
 LORA_MODELS=(
