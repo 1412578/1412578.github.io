@@ -25,28 +25,18 @@ EXTENSIONS=(
     "https://github.com/ototadana/sd-face-editor"
     "https://github.com/AlUlkesh/stable-diffusion-webui-images-browser"
     "https://github.com/hako-mikan/sd-webui-regional-prompter"
-    "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111"
     "https://github.com/fkunn1326/openpose-editor"
-    "https://github.com/Gourieff/sd-webui-reactor",
-    "https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111"
 )
 
 CHECKPOINT_MODELS=(
-    "https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
-    "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
-    "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
-    "https://civitai.com/api/download/models/537505?type=Model&format=SafeTensor&size=pruned&fp=fp16",
-    "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned.safetensors"
-    "https://civitai.com/api/download/models/395041"
-    "https://civitai.com/api/download/models/536812"
-    "https://civitai.com/api/download/models/501240"
+    "https://huggingface.co/xyn-ai/anything-v4.0/resolve/main/anything-v4.5-pruned.ckpt?download=true"
+    "https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/Models/AbyssOrangeMix3/AOM3_orangemixs.safetensors?download=true"
+    "https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/Models/AbyssOrangeMix3/AOM3A1B_orangemixs.safetensors?download=true"
+    "https://huggingface.co/admruul/anything-v3.0/resolve/main/Anything-V3.0-pruned-fp16.safetensors?download=true"
 )
 
 LORA_MODELS=(
-    "https://civitai.com/api/download/models/16576"
-    "https://civitai.com/api/download/models/176425"
-    "https://civitai.com/api/download/models/87153"
-    "https://civitai.com/api/download/models/368603"
+    "https://civitai.com/api/download/models/241140"
 )
 
 VAE_MODELS=(
