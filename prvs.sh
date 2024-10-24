@@ -18,29 +18,24 @@ PIP_PACKAGES=(
   )
 
 EXTENSIONS=(
-    "https://github.com/Mikubill/sd-webui-controlnet"
     "https://github.com/AlUlkesh/stable-diffusion-webui-images-browser"
-    "https://github.com/fkunn1326/openpose-editor"
-    "https://github.com/hako-mikan/sd-webui-lora-block-weight"
+    "https://github.com/BlafKing/sd-civitai-browser-plus"
 )
 
 CHECKPOINT_MODELS=(
-    "https://huggingface.co/xyn-ai/anything-v4.0/resolve/main/anything-v4.5-pruned.ckpt?download=true"
-    "https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/Models/AbyssOrangeMix3/AOM3_orangemixs.safetensors?download=true"
-    "https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/Models/AbyssOrangeMix3/AOM3A1B_orangemixs.safetensors?download=true"
-    "https://huggingface.co/admruul/anything-v3.0/resolve/main/Anything-V3.0-pruned-fp16.safetensors?download=true"
-    "https://civitai.com/api/download/models/432048"
+    "https://civitai.com/api/download/models/931577?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+    "https://civitai.com/api/download/models/827519?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+    "https://civitai.com/api/download/models/938880?type=Model&format=SafeTensor&size=pruned&fp=fp16"
 )
 
 LORA_MODELS=(
-    "https://civitai.com/api/download/models/241140"
-    "https://civitai.com/api/download/models/133160"
-    "https://civitai.com/api/download/models/56486"
+    "https://civitai.com/api/download/models/623394?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/391999?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/391997?type=Model&format=SafeTensor"
 )
 
 VAE_MODELS=(
-    "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
-    "https://huggingface.co/xyn-ai/anything-v4.0/resolve/main/anything-v4.0.vae.pt?download=true"
+    "https://civitai.com/api/download/models/290640?type=VAE&format=SafeTensor"
 )
 
 ESRGAN_MODELS=(
@@ -50,27 +45,6 @@ ESRGAN_MODELS=(
 )
 
 CONTROLNET_MODELS=(
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_normal-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_openpose-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_scribble-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_seg-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_canny-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_color-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_depth-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_keypose-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_openpose-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_sketch-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
-    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_canny.safetensors"
-    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_tile_anime_alpha.safetensors"
-    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_tile_anime_beta.safetensors"
-    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_tile_realistic.safetensors"
-    "https://civitai.com/api/download/models/444122"
 )
 
 
