@@ -73,6 +73,8 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
+
+    wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/uicf.json -O "${WORKSPACE}/storage/stable_diffusion/ui-config.json"
      
     PLATFORM_FLAGS=""
     if [[ $XPU_TARGET = "CPU" ]]; then
