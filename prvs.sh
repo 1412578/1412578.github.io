@@ -54,6 +54,10 @@ function provisioning_start() {
     DISK_GB_AVAILABLE=$(($(df --output=avail -m "${WORKSPACE}" | tail -n1) / 1000))
     DISK_GB_USED=$(($(df --output=used -m "${WORKSPACE}" | tail -n1) / 1000))
     DISK_GB_ALLOCATED=$(($DISK_GB_AVAILABLE + $DISK_GB_USED))
+
+    wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/uicf.json -O "/opt/stable-diffusion-webui/ui-config.json"
+    cp /config.json "/opt/stable-diffusion-webui/reclone-config.json"
+    
     provisioning_print_header
     provisioning_get_mamba_packages
     provisioning_get_pip_packages
@@ -73,8 +77,6 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
-
-    wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/uicf.json -O "${WORKSPACE}/stable-diffusion-webui/ui-config.json"
      
     PLATFORM_FLAGS=""
     if [[ $XPU_TARGET = "CPU" ]]; then
