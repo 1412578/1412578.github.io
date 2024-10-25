@@ -25,7 +25,6 @@ EXTENSIONS=(
 CHECKPOINT_MODELS=(
     "https://civitai.com/api/download/models/931577?type=Model&format=SafeTensor&size=pruned&fp=fp16"
     "https://civitai.com/api/download/models/827519?type=Model&format=SafeTensor&size=pruned&fp=fp16"
-    "https://civitai.com/api/download/models/938880?type=Model&format=SafeTensor&size=pruned&fp=fp16"
 )
 
 LORA_MODELS=(
