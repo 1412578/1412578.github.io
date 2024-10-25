@@ -18,8 +18,8 @@ PIP_PACKAGES=(
   )
 
 EXTENSIONS=(
-    "https://github.com/AlUlkesh/stable-diffusion-webui-images-browser"
-    "https://github.com/BlafKing/sd-civitai-browser-plus"
+ #   "https://github.com/AlUlkesh/stable-diffusion-webui-images-browser"
+#    "https://github.com/BlafKing/sd-civitai-browser-plus"
 )
 
 CHECKPOINT_MODELS=(
@@ -28,7 +28,7 @@ CHECKPOINT_MODELS=(
 )
 
 LORA_MODELS=(
-    "https://civitai.com/api/download/models/623394?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/623394"
     "https://civitai.com/api/download/models/391999?type=Model&format=SafeTensor"
     "https://civitai.com/api/download/models/391997?type=Model&format=SafeTensor"
 )
@@ -55,7 +55,7 @@ function provisioning_start() {
     DISK_GB_USED=$(($(df --output=used -m "${WORKSPACE}" | tail -n1) / 1000))
     DISK_GB_ALLOCATED=$(($DISK_GB_AVAILABLE + $DISK_GB_USED))
 
-    wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/uicf.json -O "/opt/stable-diffusion-webui/ui-config.json"
+    wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/uicf.json -O "/opt/stable-diffusion-webui/config2.json"
     cp /config.json "/opt/stable-diffusion-webui/reclone-config.json"
     
     provisioning_print_header
@@ -87,7 +87,7 @@ function provisioning_start() {
     
     # Start and exit because webui will probably require a restart
     cd /opt/stable-diffusion-webui && \
-    micromamba run -n webui -e LD_PRELOAD=libtcmalloc.so python launch.py \
+    micromamba run -n webui --ui-config-file config2.json -e LD_PRELOAD=libtcmalloc.so python launch.py \
         ${FLAGS_COMBINED}
     provisioning_print_end
 }
