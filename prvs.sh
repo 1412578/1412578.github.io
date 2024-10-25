@@ -10,12 +10,12 @@
 DISK_GB_REQUIRED=60
 
 MAMBA_PACKAGES=(
-    "package1"
-    "package2=version"
+  #  "package1"
+ #   "package2=version"
   )
   
 PIP_PACKAGES=(
-    "bitsandbytes==0.41.2.post2"
+ #   "bitsandbytes==0.41.2.post2"
   )
 
 EXTENSIONS=(
@@ -24,18 +24,18 @@ EXTENSIONS=(
 )
 
 CHECKPOINT_MODELS=(
-    "https://civitai.com/api/download/models/931577?type=Model&format=SafeTensor&size=pruned&fp=fp16"
-    "https://civitai.com/api/download/models/827519?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+    "https://civitai.com/api/download/models/931577"
+    "https://civitai.com/api/download/models/827519"
 )
 
 LORA_MODELS=(
     "https://civitai.com/api/download/models/623394"
-    "https://civitai.com/api/download/models/391999?type=Model&format=SafeTensor"
-    "https://civitai.com/api/download/models/391997?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/391999"
+    "https://civitai.com/api/download/models/391997"
 )
 
 VAE_MODELS=(
-    "https://civitai.com/api/download/models/290640?type=VAE&format=SafeTensor"
+    "https://civitai.com/api/download/models/290640"
 )
 
 ESRGAN_MODELS=(
