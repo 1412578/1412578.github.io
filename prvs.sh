@@ -94,8 +94,8 @@ function provisioning_start() {
     cp /config.json "/opt/stable-diffusion-webui/reclone-config.json"
 
     echo "Copy from gdrive to server"
-    rclone copy "gdrivevastai:vastai/Stable-diffusion" "${WORKSPACE}/stable-diffusion-webui/models/Stable-diffusion" --config  "/opt/stable-diffusion-webui/reclone-config.json" -P
-    rclone copy "gdrivevastai:vastai/lora" "${WORKSPACE}/stable-diffusion-webui/models/Lora" --config  "/opt/stable-diffusion-webui/reclone-config.json" -P
+    rclone copy "gdrivevastai:vastai" "${WORKSPACE}/stable-diffusion-webui" --config  "/opt/stable-diffusion-webui/reclone-config.json" -P
+   # rclone copy "gdrivevastai:vastai/lora" "${WORKSPACE}/stable-diffusion-webui/models/Lora" --config  "/opt/stable-diffusion-webui/reclone-config.json" -P
     
    # when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Lora" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Lora"  "gdrivevastai:vastai/lora" --config  "/opt/stable-diffusion-webui/reclone-config.json"
     
@@ -119,9 +119,9 @@ function provisioning_start() {
     pkill -f launch.py
 
     echo "sync models to gdrive"
-    when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Lora" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Lora"  "gdrivevastai:vastai/lora" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
-    when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Stable-diffusion" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Stable-diffusion"  "gdrivevastai:vastai/Stable-diffusion" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
-
+    when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Lora" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Lora"  "gdrivevastai:vastai/models/Lora" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
+    when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Stable-diffusion" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Stable-diffusion"  "gdrivevastai:vastai/models/Stable-diffusion" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
+    when-changed "${WORKSPACE}/stable-diffusion-webui/config.json" rclone copy "${WORKSPACE}/stable-diffusion-webui/config.json"  "gdrivevastai:vastai" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
 }
 
 function pip_install() {
