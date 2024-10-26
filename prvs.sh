@@ -89,7 +89,9 @@ function provisioning_start() {
     ARGS_COMBINED="${PLATFORM_ARGS} $(cat /etc/a1111_webui_flags.conf) ${PROVISIONING_ARGS}"
 
     # config
-    wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/uicf.json -O "/opt/stable-diffusion-webui/ui-config.json"
+   # wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/uicf.json -O "/opt/stable-diffusion-webui/ui-config.json"
+    
+    wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/cf.json -O "/opt/stable-diffusion-webui/config.json"
     cp /config.json "/opt/stable-diffusion-webui/reclone-config.json"
 
     
@@ -191,7 +193,8 @@ function provisioning_download() {
         auth_token="$CIVITAI_TOKEN"
     fi
     if [[ -n $auth_token ]];then
-        wget --header="Authorization: Bearer $auth_token" -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1?token=$auth_token"
+        echo wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1?token=$auth_token"
+        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1?token=$auth_token"
     else
         wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
     fi
