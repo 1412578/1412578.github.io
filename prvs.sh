@@ -116,7 +116,7 @@ function provisioning_start() {
     
     provisioning_print_end
 
-    pip install https://github.com/joh/when-changed/archive/master.zip
+   sudo pip install https://github.com/joh/when-changed/archive/master.zip
 
     sleep 5
 
