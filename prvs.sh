@@ -88,9 +88,11 @@ function provisioning_start() {
     ARGS_COMBINED="${PLATFORM_ARGS} $(cat /etc/a1111_webui_flags.conf) ${PROVISIONING_ARGS}"
 
     # config
+    pip install https://github.com/joh/when-changed/archive/master.zip
    # wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/uicf.json -O "/opt/stable-diffusion-webui/ui-config.json"
     
-    wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/cf.json -O "/opt/stable-diffusion-webui/config.json"
+   # wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/cf.json -O "/opt/stable-diffusion-webui/config.json"
+  # config.json is from onstart
     cp /config.json "/opt/stable-diffusion-webui/reclone-config.json"
 
     echo "Copy from gdrive to server"
