@@ -19,8 +19,8 @@ PIP_PACKAGES=(
   )
 
 EXTENSIONS=(
- #   "https://github.com/AlUlkesh/stable-diffusion-webui-images-browser"
-#    "https://github.com/BlafKing/sd-civitai-browser-plus"
+   "https://github.com/AlUlkesh/stable-diffusion-webui-images-browser"
+  "https://github.com/BlafKing/sd-civitai-browser-plus"
 )
 
 CHECKPOINT_MODELS=(
