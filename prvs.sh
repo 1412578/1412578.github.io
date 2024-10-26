@@ -16,6 +16,7 @@ MAMBA_PACKAGES=(
   
 PIP_PACKAGES=(
  #   "bitsandbytes==0.41.2.post2"
+ "https://github.com/joh/when-changed/archive/master.zip"
   )
 
 EXTENSIONS=(
@@ -88,7 +89,6 @@ function provisioning_start() {
     ARGS_COMBINED="${PLATFORM_ARGS} $(cat /etc/a1111_webui_flags.conf) ${PROVISIONING_ARGS}"
 
     # config
-    pip install https://github.com/joh/when-changed/archive/master.zip
    # wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/uicf.json -O "/opt/stable-diffusion-webui/ui-config.json"
     
    # wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/cf.json -O "/opt/stable-diffusion-webui/config.json"
@@ -116,6 +116,8 @@ function provisioning_start() {
     
     provisioning_print_end
 
+    pip install https://github.com/joh/when-changed/archive/master.zip
+
     sleep 5
 
     pkill -f launch.py
@@ -124,6 +126,9 @@ function provisioning_start() {
     when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Lora" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Lora"  "gdrivevastai:vastai/models/Lora" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
     when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Stable-diffusion" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Stable-diffusion"  "gdrivevastai:vastai/models/Stable-diffusion" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
     when-changed "${WORKSPACE}/stable-diffusion-webui/config.json" rclone copy "${WORKSPACE}/stable-diffusion-webui/config.json"  "gdrivevastai:vastai" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
+    when-changed -r "${WORKSPACE}/stable-diffusion-webui/outputs" rclone copy "${WORKSPACE}/stable-diffusion-webui/outputs"  "gdrivevastai:vastai/outputs" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
+    when-changed "${WORKSPACE}/stable-diffusion-webui/extensions/stable-diffusion-webui-images-browser/wib.sqlite3" rclone copy "${WORKSPACE}/stable-diffusion-webui/extensions/stable-diffusion-webui-images-browser/wib.sqlite3"  "gdrivevastai:vastai/extensions/stable-diffusion-webui-images-browser" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
+
 }
 
 function pip_install() {
