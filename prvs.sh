@@ -93,6 +93,7 @@ function provisioning_start() {
     
     wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/cf.json -O "/opt/stable-diffusion-webui/config.json"
     cp /config.json "/opt/stable-diffusion-webui/reclone-config.json"
+    rclone copy "gdrivevastai:vastai/lora" "${WORKSPACE}/storage/stable_diffusion/lora"
 
     
     
