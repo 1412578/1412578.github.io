@@ -91,6 +91,8 @@ function provisioning_start() {
     # config
     wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/uicf.json -O "/opt/stable-diffusion-webui/ui-config.json"
     cp /config.json "/opt/stable-diffusion-webui/reclone-config.json"
+
+    
     
     # Start and exit because webui will probably require a restart
     cd /opt/stable-diffusion-webui
@@ -103,7 +105,12 @@ function provisioning_start() {
         micromamba run -n webui -e LD_PRELOAD=libtcmalloc.so python launch.py \
             ${ARGS_COMBINED}
     fi
+    
     provisioning_print_end
+
+    sleep 5
+
+    pkill -f launch.py
 }
 
 function pip_install() {
@@ -184,7 +191,7 @@ function provisioning_download() {
         auth_token="$CIVITAI_TOKEN"
     fi
     if [[ -n $auth_token ]];then
-        wget --header="Authorization: Bearer $auth_token" -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+        wget --header="Authorization: Bearer $auth_token" -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1?token=$auth_token"
     else
         wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
     fi
