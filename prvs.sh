@@ -24,12 +24,12 @@ EXTENSIONS=(
 )
 
 CHECKPOINT_MODELS=(
-    "https://civitai.com/api/download/models/931577?type=Model&format=SafeTensor&size=pruned&fp=fp16"
-    "https://civitai.com/api/download/models/827519?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+ #   "https://civitai.com/api/download/models/931577?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+  #  "https://civitai.com/api/download/models/827519?type=Model&format=SafeTensor&size=pruned&fp=fp16"
 )
 
 LORA_MODELS=(
-    "https://civitai.com/api/download/models/391999?type=Model&format=SafeTensor"
+  #  "https://civitai.com/api/download/models/391999?type=Model&format=SafeTensor"
 )
 
 VAE_MODELS=(
@@ -92,8 +92,12 @@ function provisioning_start() {
     
     wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/cf.json -O "/opt/stable-diffusion-webui/config.json"
     cp /config.json "/opt/stable-diffusion-webui/reclone-config.json"
-    rclone copy "gdrivevastai:vastai/lora" "${WORKSPACE}/storage/stable_diffusion/models/lora" --config  "/opt/stable-diffusion-webui/reclone-config.json"
 
+    rclone copy "gdrivevastai:vastai/Stable-diffusion" "${WORKSPACE}/stable-diffusion-webui/models/Stable-diffusion" --config  "/opt/stable-diffusion-webui/reclone-config.json" -P
+
+    rclone copy "gdrivevastai:vastai/lora" "${WORKSPACE}/stable-diffusion-webui/models/Lora" --config  "/opt/stable-diffusion-webui/reclone-config.json" -P
+    
+    when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Lora" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Lora"  "gdrivevastai:vastai/lora" --config  "/opt/stable-diffusion-webui/reclone-config.json"
     
     
     # Start and exit because webui will probably require a restart
