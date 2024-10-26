@@ -24,18 +24,17 @@ EXTENSIONS=(
 )
 
 CHECKPOINT_MODELS=(
-    "https://civitai.com/api/download/models/931577"
-    "https://civitai.com/api/download/models/827519"
+    "https://civitai.com/api/download/models/931577?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+    "https://civitai.com/api/download/models/827519?type=Model&format=SafeTensor&size=pruned&fp=fp16"
 )
 
 LORA_MODELS=(
-    "https://civitai.com/api/download/models/623394"
-    "https://civitai.com/api/download/models/391999"
-    "https://civitai.com/api/download/models/391997"
+    "https://civitai.com/api/download/models/391999?type=Model&format=SafeTensor"
 )
 
 VAE_MODELS=(
-    "https://civitai.com/api/download/models/290640"
+ #   "https://civitai.com/api/download/models/290640"
+    "https://civitai.com/api/download/models/290640?type=VAE&format=SafeTensor"
 )
 
 ESRGAN_MODELS=(
@@ -194,8 +193,8 @@ function provisioning_download() {
         auth_token="$CIVITAI_TOKEN"
     fi
     if [[ -n $auth_token ]];then
-        echo wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1?token=$auth_token"
-        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1?token=$auth_token"
+        echo wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1&token=$auth_token"
+        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1&token=$auth_token"
     else
         wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
     fi
