@@ -93,11 +93,11 @@ function provisioning_start() {
     wget https://raw.githubusercontent.com/1412578/1412578.github.io/refs/heads/main/cf.json -O "/opt/stable-diffusion-webui/config.json"
     cp /config.json "/opt/stable-diffusion-webui/reclone-config.json"
 
+    echo "Copy from gdrive to server"
     rclone copy "gdrivevastai:vastai/Stable-diffusion" "${WORKSPACE}/stable-diffusion-webui/models/Stable-diffusion" --config  "/opt/stable-diffusion-webui/reclone-config.json" -P
-
     rclone copy "gdrivevastai:vastai/lora" "${WORKSPACE}/stable-diffusion-webui/models/Lora" --config  "/opt/stable-diffusion-webui/reclone-config.json" -P
     
-    when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Lora" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Lora"  "gdrivevastai:vastai/lora" --config  "/opt/stable-diffusion-webui/reclone-config.json"
+   # when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Lora" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Lora"  "gdrivevastai:vastai/lora" --config  "/opt/stable-diffusion-webui/reclone-config.json"
     
     
     # Start and exit because webui will probably require a restart
@@ -117,6 +117,11 @@ function provisioning_start() {
     sleep 5
 
     pkill -f launch.py
+
+    echo "sync models to gdrive"
+    when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Lora" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Lora"  "gdrivevastai:vastai/lora" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
+    when-changed -r "${WORKSPACE}/stable-diffusion-webui/models/Stable-diffusion" rclone copy "${WORKSPACE}/stable-diffusion-webui/models/Stable-diffusion"  "gdrivevastai:vastai/Stable-diffusion" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
+
 }
 
 function pip_install() {
