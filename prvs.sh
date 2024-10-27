@@ -129,6 +129,7 @@ function provisioning_start() {
  #   when-changed -r "${WORKSPACE}/stable-diffusion-webui/outputs" rclone copy "${WORKSPACE}/stable-diffusion-webui/outputs"  "gdrivevastai:vastai/outputs" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
     when-changed "${WORKSPACE}/stable-diffusion-webui/extensions/stable-diffusion-webui-images-browser/wib.sqlite3" rclone copy "${WORKSPACE}/stable-diffusion-webui/extensions/stable-diffusion-webui-images-browser/wib.sqlite3"  "gdrivevastai:vastai/extensions/stable-diffusion-webui-images-browser" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
     when-changed -r "${WORKSPACE}/stable-diffusion-webui/log/images" rclone copy "${WORKSPACE}/stable-diffusion-webui/log/images"  "gdrivevastai:vastai/log/images" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
+ #   when-changed -r "${WORKSPACE}/stable-diffusion-webui/log" rclone copy "${WORKSPACE}/stable-diffusion-webui/log"  "gdrivevastai:vastai/log" --config  "/opt/stable-diffusion-webui/reclone-config.json" &
     
 }
 
