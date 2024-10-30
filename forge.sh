@@ -95,6 +95,9 @@ function provisioning_start() {
     cp /config.json "${WORKSPACE}/stable-diffusion-webui-forge/reclone-config.json"
 
     rclone copy "gdrivevastai:vastai-forge" "${WORKSPACE}/stable-diffusion-webui-forge" --config  "${WORKSPACE}/stable-diffusion-webui-forge/reclone-config.json" -P
+
+sudo pip install https://github.com/joh/when-changed/archive/master.zip
+
  
      
     PLATFORM_ARGS=""
@@ -113,6 +116,13 @@ function provisioning_start() {
 
 
     provisioning_print_end
+
+sudo pip install https://github.com/joh/when-changed/archive/master.zip
+
+
+    when-changed "${WORKSPACE}/stable-diffusion-webui-forge/extensions/stable-diffusion-webui-images-browser/wib.sqlite3" rclone copy "${WORKSPACE}/stable-diffusion-webui-forge/extensions/stable-diffusion-webui-images-browser/wib.sqlite3"  "gdrivevastai:vastai-forge/extensions/stable-diffusion-webui-images-browser" --config  "/opt/stable-diffusion-webui-forge/reclone-config.json" &
+    when-changed -r "${WORKSPACE}/stable-diffusion-webui-forge/log/images" rclone copy "${WORKSPACE}/stable-diffusion-webui-forge/log/images"  "gdrivevastai:vastai-forge/log/images" --config  "/opt/stable-diffusion-webui-forge/reclone-config.json" --include "*.png"  &
+ 
 }
 
 function pip_install() {
