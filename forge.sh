@@ -96,6 +96,12 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/clip" \
         "${CLIP_MODELS[@]}"
+
+    echo "Copy from gdrive to server"
+    cp /config.json "${WORKSPACE}/stable-diffusion-webui-forge/reclone-config.json"
+
+    rclone copy "gdrivevastai:vastai-forge" "${WORKSPACE}/stable-diffusion-webui-forge" --config  "${WORKSPACE}/stable-diffusion-webui-forge/reclone-config.json" -P
+ 
      
     PLATFORM_ARGS=""
     if [[ $XPU_TARGET = "CPU" ]]; then
