@@ -16,6 +16,7 @@ APT_PACKAGES=(
 
 PIP_PACKAGES=(
     "onnxruntime-gpu"
+     "https://github.com/joh/when-changed/archive/master.zip"
 )
 
 EXTENSIONS=(
