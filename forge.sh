@@ -123,7 +123,10 @@ sudo pip install https://github.com/joh/when-changed/archive/master.zip
 
     when-changed "${WORKSPACE}/stable-diffusion-webui-forge/extensions/stable-diffusion-webui-images-browser/wib.sqlite3" rclone copy "${WORKSPACE}/stable-diffusion-webui-forge/extensions/stable-diffusion-webui-images-browser/wib.sqlite3"  "gdrivevastai:vastai-forge/extensions/stable-diffusion-webui-images-browser" --config  "/opt/stable-diffusion-webui-forge/reclone-config.json" &
     when-changed -r "${WORKSPACE}/stable-diffusion-webui-forge/log/images" rclone copy "${WORKSPACE}/stable-diffusion-webui-forge/log/images"  "gdrivevastai:vastai-forge/log/images" --config  "/opt/stable-diffusion-webui-forge/reclone-config.json" --include "*.png"  &
- 
+    when-changed -r "${WORKSPACE}/stable-diffusion-webui-forge/models/Stable-diffusion" rclone copy "${WORKSPACE}/stable-diffusion-webui-forge/models/Stable-diffusion"  "gdrivevastai:vastai-forge/models/Stable-diffusion" --config  "/opt/stable-diffusion-webui-forge/reclone-config.json" &
+    when-changed -r "${WORKSPACE}/stable-diffusion-webui-forge/models/text_encoder" rclone copy "${WORKSPACE}/stable-diffusion-webui-forge/models/text_encoder"  "gdrivevastai:vastai-forge/models/text_encoder" --config  "/opt/stable-diffusion-webui-forge/reclone-config.json" &
+
+
 }
 
 function pip_install() {
